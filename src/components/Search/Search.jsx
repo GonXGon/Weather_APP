@@ -6,7 +6,7 @@ const Search = ({ onSearch }) => {
 
   const handleSearch = async () => {
     if (!location) return;
-    const apiKey = '668da770a78b4253489140yjme92afb';
+    const apiKey = process.env.REACT_APP_MAPBOX_API_KEY;
     const response = await fetch(`https://geocode.maps.co/search?q=${location}&api_key=${apiKey}`);
     const data = await response.json();
 

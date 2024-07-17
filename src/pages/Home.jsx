@@ -9,7 +9,7 @@ const Home = () => {
   const [weather, setWeather] = useState(null);
 
   const fetchWeather = async ({ lat, lng }) => {
-    const apikey = 'd24f18dc0bf342480fa1e02eed14038a';
+    const apikey = process.env.REACT_APP_WEATHER_API_KEY;
     const response = await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lng}&units=metric&appid=${apikey}`);
     const data = await response.json();
     setWeather(data);
