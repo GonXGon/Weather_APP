@@ -13,7 +13,7 @@ const Search = ({ onSearch }) => {
     if (data && data.length > 0) {
       const lat = data[0].lat;
       const lng = data[0].lon;
-      onSearch({ lat, lng });
+      onSearch({ lat, lng, location});
     }
   };
 

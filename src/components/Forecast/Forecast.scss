@@ -1,0 +1,38 @@
+.forecastdetail-cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.forecast-section h2{
+    color: black;
+}
+.forecastHeader{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.forecastHeader-detail h4{
+    color: black;
+}
+.forecastDetail-card{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+.cardDetails{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.forecast-navigation{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+}

@@ -1,30 +1,59 @@
 .weather-card {
-    background: #af04ff;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  align-items: center;
+  text-align: center;
+}
+.weather-card h1{
+  color: black;
+}
+.btns{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1.5rem;
 }
 .heading-weather{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 1rem;
 }
-.heading-weather h2{
-    color: black;
-    margin-bottom: 2rem;
+.center-details{
+  display: flex;
+  flex-direction: column;
+}
+.center-details h1{
+  color: black;
+}
+.center-details h2{
+  color: black;
+}
+.center-details h4{
+  color: black;
+}
+.location{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 .weather-details {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
-
 .weather-details .card-text {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+.weatherDetails-card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
