@@ -2,28 +2,25 @@ import React, { useState } from 'react';
 import "./Forecast.scss";
 import { Card, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCloudSun, faArrowLeft, faArrowRight, faThermometerHalf,faTint,faWind,faCompressArrowsAlt,faCloud,faSun,faArrowUp, } from '@fortawesome/free-solid-svg-icons';
+import { faCloudSun, faArrowLeft, faArrowRight, faThermometerHalf, faTint, faWind, faCompressArrowsAlt, faCloud, faSun, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import moment from 'moment-timezone';
 
 const Forecast = ({ dailyForecast, weatherIconMapping, currentTime }) => {
-    const [showNextDay, setShowNextDay] = useState(false);
     const [selectedDayIndex, setSelectedDayIndex] = useState(0);
-  
+
     const handlePrevDay = () => {
-      setSelectedDayIndex((prevIndex) => Math.max(prevIndex - 1, 0));
-      setShowNextDay(false);
+        setSelectedDayIndex((prevIndex) => Math.max(prevIndex - 1, 0));
     };
-  
+
     const handleNextDay = () => {
-      setSelectedDayIndex((prevIndex) => Math.min(prevIndex + 1, dailyForecast.length - 1));
-      setShowNextDay(true);
+        setSelectedDayIndex((prevIndex) => Math.min(prevIndex + 1, dailyForecast.length - 1));
     };
-  
+
     const selectedDay = dailyForecast[selectedDayIndex];
-  
+
     return (
         <div className="forecast-section">
-            <Card.Body  key={selectedDayIndex} className='forecastdetail-cards'>
+            <Card.Body key={selectedDayIndex} className='forecastdetail-cards'>
                 <Card.Header className="forecastHeader">
                     <h2>{moment(selectedDay.dt * 1000).format('ddd, MMM D')}</h2>
                     <FontAwesomeIcon icon={weatherIconMapping[selectedDay.weather[0].main] || faCloudSun} size="4x" />
@@ -42,25 +39,25 @@ const Forecast = ({ dailyForecast, weatherIconMapping, currentTime }) => {
 
                     <Card style={{ width: '10rem', height: '5rem' }} className='cardDetails'>
                         <Card.Text>
-                        <FontAwesomeIcon icon={faTint} /> Humidity: {selectedDay.humidity}%
+                            <FontAwesomeIcon icon={faTint} /> Humidity: {selectedDay.humidity}%
                         </Card.Text>
                     </Card>
 
                     <Card style={{ width: '10rem', height: '5rem' }} className='cardDetails'>
                         <Card.Text>
-                        <FontAwesomeIcon icon={faCompressArrowsAlt} /> Pressure: {selectedDay.pressure} hPa
+                            <FontAwesomeIcon icon={faCompressArrowsAlt} /> Pressure: {selectedDay.pressure} hPa
                         </Card.Text>
                     </Card>
 
                     <Card style={{ width: '10rem', height: '5rem' }} className='cardDetails'>
                         <Card.Text>
-                        <FontAwesomeIcon icon={faWind} /> Wind Speed: {selectedDay.wind_speed} m/s
+                            <FontAwesomeIcon icon={faWind} /> Wind Speed: {selectedDay.wind_speed} m/s
                         </Card.Text>
                     </Card>
 
                     <Card style={{ width: '10rem', height: '5rem' }} className='cardDetails'>
                         <Card.Text>
-                        <FontAwesomeIcon icon={faArrowUp} /> Wind Direction: {selectedDay.wind_deg}°
+                            <FontAwesomeIcon icon={faArrowUp} /> Wind Direction: {selectedDay.wind_deg}°
                         </Card.Text>
                     </Card>
 
@@ -77,16 +74,16 @@ const Forecast = ({ dailyForecast, weatherIconMapping, currentTime }) => {
                     </Card>
                 </div>
             </Card.Body>
-        <div className="forecast-navigation">
-          <Button onClick={handlePrevDay} disabled={selectedDayIndex === 0} variant="info">
-            <FontAwesomeIcon icon={faArrowLeft} /> Previous Day
-          </Button>
-          <Button onClick={handleNextDay} disabled={selectedDayIndex === dailyForecast.length - 1} variant="info">
-            Next Day <FontAwesomeIcon icon={faArrowRight} />
-          </Button>
+            <div className="forecast-navigation">
+                <Button onClick={handlePrevDay} disabled={selectedDayIndex === 0} variant="info">
+                    <FontAwesomeIcon icon={faArrowLeft} /> Previous Day
+                </Button>
+                <Button onClick={handleNextDay} disabled={selectedDayIndex === dailyForecast.length - 1} variant="info">
+                    Next Day <FontAwesomeIcon icon={faArrowRight} />
+                </Button>
+            </div>
         </div>
-      </div>
     );
-  }
+}
 
 export default Forecast;
